@@ -1,0 +1,12 @@
+h1{
+    color: red;
+}
+
+th,td{
+    border: 2px solid Red;
+
+}
+
+.popup{
+    display: none;
+}

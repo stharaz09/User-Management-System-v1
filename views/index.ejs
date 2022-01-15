@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>User Information System</title>
+</head>
+<body>
+    <h1>User Information</h1>
+    <button onclick="popUp()">Add New User</button>    
+    <br/>
+    <br>
+    <table>
+        <tr>
+            <td>S.N</td>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th colspan="2"> Function </th>
+        </tr>
+        <% userdetails.forEach((user,index)=>{ %>
+        <tr>
+            <td><%= index + 1 %></td>
+            <td><%= user.fname %></td>
+            <td><%= user.mname %></td>
+            <td><%= user.lname %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone %></td>
+            <td> <a href="/updateuser/<%= index %>"> Update </a> </td>
+            <td> <a href="/deleteuser/<%= index %>">Delete</a> </td>
+        </tr>
+        <% }) %>
+    </table>
+
+    <div id="popupForm" class="popup">
+        <form action="/adduser" method="post">
+          <%- include("./partials/user-form") -%>
+        </form>
+        <button onclick="popupClose()">Close</button>
+    </div>
+  <script src="javascript/main.js"></script>
+
+</body>
+</html>
